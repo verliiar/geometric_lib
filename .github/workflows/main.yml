@@ -13,6 +13,9 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.8'
+          
+      - name: Upgrade pip
+        run: python3.8 -m pip install --upgrade pip
 
       - name: Run tests
         run: python -m unittest discover -p 'test_*.py'
@@ -28,6 +31,10 @@ jobs:
         with:
           python-version: '3.8'
 
+      - name: Upgrade pip
+        run: python3.8 -m pip install --upgrade pip
+
+
       - name: Run tests
         run: python -m unittest discover -p 'test_*.py'
 
@@ -41,6 +48,9 @@ jobs:
        uses: actions/setup-python@v4
        with:
          python-version: '3.8'
+
+     - name: Upgrade pip
+       run: python3.8 -m pip install --upgrade pip
 
      - name: Run tests
        run: python -m unittest discover -p 'test_*.py'
