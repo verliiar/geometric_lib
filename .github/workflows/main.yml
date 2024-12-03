@@ -1,0 +1,46 @@
+name: Starts Unit Testing
+
+on: [push, pull_request]
+
+jobs:
+  test-ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+
+      - name: Install Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.10
+
+      - name: Run tests
+        run: python -m unittest discover
+
+  test-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+
+      - name: Install Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.10
+
+      - name: Run tests
+        run: python -m unittest discover
+
+  test-macos:
+    runs-on: macos-latest
+    steps:
+     - name: Clone repository
+       uses: actions/checkout@v3
+
+     - name: Install Python
+       uses: actions/setup-python@v4
+       with:
+         python-version: 3.10
+
+     - name: Run tests
+       run: python -m unittest discover
