@@ -28,6 +28,9 @@ jobs:
       - name: Install pytest
         run: pip install pytest
 
+      - name: Debug file structure
+        run: ls -R $GITHUB_WORKSPACE
+
       - name: Run unit tests
         working-directory: /home/runner/work/geometric_lib
         run: pytest --import-mode=importlib
