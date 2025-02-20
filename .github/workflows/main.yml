@@ -29,5 +29,6 @@ jobs:
         run: pip install pytest
 
       - name: Run unit tests
+        working-directory: /home/runner/work/geometric_lib
         run: pytest .
   
