@@ -29,5 +29,5 @@ jobs:
         run: pip install pytest
 
       - name: Run unit tests
-        run: pytest geometric_lib/
+        run: pytest .
   
