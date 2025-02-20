@@ -33,7 +33,6 @@ jobs:
 
       - name: Run unit tests
         working-directory: /home/runner/work/geometric_lib
-        run: |
-          set +e
-          pytest
+        run: pytest
+        continue-on-error: true
   
