@@ -26,4 +26,4 @@ jobs:
         run: echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
   
       - name: Run unit tests
-        run: python3 -m unittest ./test_results.py
+        run: python3 -m unittest discover -s geometric_lib
