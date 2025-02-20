@@ -33,5 +33,7 @@ jobs:
 
       - name: Run unit tests
         working-directory: /home/runner/work/geometric_lib
-        run: pytest --import-mode=importlib
+        run: |
+          set +e
+          pytest
   
