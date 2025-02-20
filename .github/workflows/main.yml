@@ -24,6 +24,10 @@ jobs:
           
       - name: Add PYTHONPATH
         run: echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
-  
+
+      - name: Install pytest
+        run: pip install pytest
+
       - name: Run unit tests
-        run: python3 -m unittest discover -s geometric_lib
+        run: pytest geometric_lib/
+  
