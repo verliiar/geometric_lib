@@ -1,7 +1,7 @@
 import unittest
 from math import isclose
 
-from rectangle import area_rectangle, perimeter_rectangle
+from .rectangle import area_rectangle, perimeter_rectangle
 class RectangleTestCase(unittest.TestCase):
 
     def test_correct(self):
@@ -104,7 +104,7 @@ class RectangleTestCase(unittest.TestCase):
                 res = perimeter_rectangle(param_1, param_2, param_3, param_4)
                 self.assertTrue(isclose(res, expect))
     
-from circle import area_circle, perimeter_circle
+from .circle import area_circle, perimeter_circle
 class CircleTestCase(unittest.TestCase):
     
     def test_correct(self):
@@ -171,7 +171,7 @@ class CircleTestCase(unittest.TestCase):
                 self.assertTrue(res == False or res == -1)
 
 
-from square import area_square, perimeter_square
+from .square import area_square, perimeter_square
 class SquareTestCase(unittest.TestCase):
     def test_correct(self):
         test_area_data = [
@@ -254,7 +254,7 @@ class SquareTestCase(unittest.TestCase):
                 self.assertTrue(isclose(expect, perimeter_square(side)))
 
 
-from triangle import area_triangle, perimeter_triangle
+from .triangle import area_triangle, perimeter_triangle
 class TriangleTestCase(unittest.TestCase):
 
     def test_correct(self):
