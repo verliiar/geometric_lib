@@ -1,7 +1,7 @@
 
-def area(a, b):
+def area_rectangle(a, b):
     return a * b
 
 
-def perimeter(a, b, c, d):
+def perimeter_rectangle(a, b, c, d):
     return a + b + c + d
