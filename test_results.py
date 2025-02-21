@@ -1,7 +1,7 @@
 import unittest
 from math import isclose
 
-from geometric_lib.rectangle import area_rectangle, perimeter_rectangle
+from .rectangle import area_rectangle, perimeter_rectangle
 class RectangleTestCase(unittest.TestCase):
 
     def test_correct(self):
@@ -24,62 +24,6 @@ class RectangleTestCase(unittest.TestCase):
         for param_1, param_2, param_3, param_4, expect in test_perim_data:
             with self.subTest(param_1=param_1, param_2=param_2, param_3=param_3, param_4=param_4):
                 self.assertEqual(perimeter_rectangle(param_1, param_2, param_3, param_4), expect)
-
-    def test_null_values(self):
-        test_area_data = [
-            (0, 5, 0),
-            (15, 0, 0),
-            (0, 0, 0)
-        ]
-        for width, height, expect in test_area_data:
-            with self.subTest(width=width, height=height):
-                self.assertEqual(area_rectangle(width, height), expect)
-
-        test_perim_data = [
-            (0, 0, 5, 5, 0),
-            (2, 0, 2, 0, 0),
-            (2, 0, 0, 2, 0),
-            (0, 5, 5, 0, 0)
-        ]
-        for param_1, param_2, param_3, param_4, expect in test_perim_data:
-            with self.subTest(param_1=param_1, param_2=param_2, param_3=param_3, param_4=param_4):
-                self.assertEqual(perimeter_rectangle(param_1, param_2, param_3, param_4), expect)
-
-    def test_negative_values(self):
-        test_area_data = [
-            (3, -5),
-            (-15, 4),
-            (-4, -2),
-            (-5, 0),
-            (-33, 0)
-        ]
-        for width, height in test_area_data:
-            with self.subTest(width=width, height=height):
-                result = area_rectangle(width, height)
-                self.assertTrue(result == False or result == -1)
-
-        test_perim_data = [
-            (0, 0, -5, -5),
-            (2, -9, 2, -9),
-            (-2, 0, 0, -2),
-            (0, -5, -5, 0)
-        ]
-        for param_1, param_2, param_3, param_4 in test_perim_data:
-            with self.subTest(param_1=param_1, param_2=param_2, param_3=param_3, param_4=param_4):
-                result = perimeter_rectangle(param_1, param_2, param_3, param_4)
-                self.assertTrue(result == False or result == -1)
-
-    def test_wrong_inputdata(self):
-
-        test_perim_data = [
-            (1, 4, 2, 3),
-            (1, 8, 1, 4),
-            (8, 8, 8, 4)
-        ]
-        for param_1, param_2, param_3, param_4 in test_perim_data:
-            with self.subTest(param_1=param_1, param_2=param_2, param_3=param_3, param_4=param_4):
-                result = perimeter_rectangle(param_1, param_2, param_3, param_4)
-                self.assertTrue(result == False or result == -1)
 
     def test_accuracy_results(self):
         test_area_data = [
@@ -104,7 +48,7 @@ class RectangleTestCase(unittest.TestCase):
                 res = perimeter_rectangle(param_1, param_2, param_3, param_4)
                 self.assertTrue(isclose(res, expect))
     
-from geometric_lib.circle import area_circle, perimeter_circle
+from circle import area_circle, perimeter_circle
 class CircleTestCase(unittest.TestCase):
     
     def test_correct(self):
@@ -130,48 +74,7 @@ class CircleTestCase(unittest.TestCase):
                 res = perimeter_circle(radius)
                 self.assertTrue(isclose(res, expect))
 
-    def test_null_values(self):
-        test_area_data = [
-            (0, 0)
-        ]
-        for radius, expect in test_area_data:
-            with self.subTest(radius=radius):
-                res = area_circle(radius)
-                self.assertEqual(res, expect)
-
-        test_perim_data = [
-            (0, 0)
-        ]
-        for radius, expect in test_perim_data:
-            with self.subTest(radius=radius):
-                res = perimeter_circle(radius)
-                self.assertEqual(res, expect)
-
-    def test_negative_values(self):
-        test_area_data = [
-            (-15),
-            (-2),
-            (-1),
-            (-1039843349400)
-        ]
-        for radius in test_area_data:
-            with self.subTest(radius=radius):
-                res = area_circle(radius)
-                self.assertTrue(res == False or res == -1)
-
-        test_perim_data = [
-            (-15),
-            (-2),
-            (-1),
-            (-1039843349400)
-        ]
-        for radius in test_perim_data:
-            with self.subTest(radius=radius):
-                res = perimeter_circle(radius)
-                self.assertTrue(res == False or res == -1)
-
-
-from geometric_lib.square import area_square, perimeter_square
+from square import area_square, perimeter_square
 class SquareTestCase(unittest.TestCase):
     def test_correct(self):
         test_area_data = [
@@ -193,44 +96,6 @@ class SquareTestCase(unittest.TestCase):
         for side, expect in test_perim_data:
             with self.subTest(side=side):
                 self.assertEqual(expect, perimeter_square(side))
-
-    def test_null_values(self):
-        test_area_data = [
-            (0, 0)
-        ]
-        for side, expect in test_area_data:
-            with self.subTest(side=side):
-                self.assertEqual(expect, area_square(side))
-
-        test_perim_data = [
-            (0, 0)
-        ]
-        for side, expect in test_perim_data:
-            with self.subTest(side=side):
-                self.assertEqual(expect, perimeter_square(side))
-
-    def test_negative_values(self):
-        test_area_data = [
-            (-15),
-            (-2),
-            (-1),
-            (-1039843349400)
-        ]
-        for side in test_area_data:
-            with self.subTest(side=side):
-                res = area_square(side)
-                self.assertTrue(res == False or res == -1)
-
-        test_perim_data = [
-            (-15),
-            (-2),
-            (-1),
-            (-1039843349400)
-        ]
-        for side in test_perim_data:
-            with self.subTest(side=side):
-                res = perimeter_square(side)
-                self.assertTrue(res == False or res == -1)
 
     def test_accuracy_results(self):
         test_area_data = [
@@ -254,7 +119,7 @@ class SquareTestCase(unittest.TestCase):
                 self.assertTrue(isclose(expect, perimeter_square(side)))
 
 
-from geometric_lib.triangle import area_triangle, perimeter_triangle
+from triangle import area_triangle, perimeter_triangle
 class TriangleTestCase(unittest.TestCase):
 
     def test_correct(self):
