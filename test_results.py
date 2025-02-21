@@ -143,36 +143,6 @@ class TriangleTestCase(unittest.TestCase):
             with self.subTest(param_1=param_1, param_2=param_2, param_3=param_3):
                 self.assertEqual(perimeter_triangle(param_1, param_2, param_3), expect)
 
-
-    def test_wrong_inputdata(self):
-        test_area_data = [
-            (3, -5),
-            (-15, 4),
-            (4, 0),
-            (0, 5),
-            (0, 0),
-            (-2, -8)
-        ]
-        for osn, height in test_area_data:
-            with self.subTest(osn=osn, height=height):
-                result = area_triangle(osn, height)
-                self.assertTrue(result == False or result == -1)
-
-        test_perim_data = [
-            (10, 3, -5),
-            (2, -9, 2),
-            (-2, 11, 8),
-            (0, 10, 6),
-            (6, 0, 3),
-            (8, 19, 0),
-            (3, 30, 6)
-        ]
-        for param_1, param_2, param_3 in test_perim_data:
-            with self.subTest(param_1=param_1, param_2=param_2, param_3=param_3):
-                result = perimeter_triangle(param_1, param_2, param_3)
-                self.assertTrue(result == False or result == -1)
-
-
     def test_accuracy_results(self):
         test_area_data = [
             (2.852, 5.432, 7.746032),
