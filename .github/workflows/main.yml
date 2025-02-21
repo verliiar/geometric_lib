@@ -28,7 +28,15 @@ jobs:
       - name: Install pytest
         run: pip install pytest
 
-      - name: Run unit tests
-        run: pytest
-        continue-on-error: true
-  
+      - name: Run tests ubuntu
+        shell: bash
+        run: |
+          export PYTHONPATH="${{ github.workspace }}"
+          pytest
+
+      - name: Run tests windows
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $env:PYTHONPATH = "${{ github.workspace }}"
+          pytest
